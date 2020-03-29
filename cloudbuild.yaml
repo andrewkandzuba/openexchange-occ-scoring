@@ -41,4 +41,4 @@ steps:
   # Build local maven
   - name: maven:3.6.3-jdk-13
     entrypoint: 'mvn'
-    args: ['clean', 'install']
+    args: ['clean', 'install', "-Djacoco.check.coverage.minimal=$_MIN_COVERAGE"]
