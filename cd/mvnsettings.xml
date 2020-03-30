@@ -1,0 +1,33 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <servers>
+        <server>
+            <id>ossrh</id>
+            <!-- username>${env.OSSRH_JIRA_USERNAME}</username>
+            <password>${env.OSSRH_JIRA_PASSWORD}</password -->
+            <username>andrew_kandzuba</username>
+            <password>A16hotdog448BAD&amp;</password>
+        </server>
+        <server>
+            <id>docker.io</id>
+            <!-- username>${env.DOCKER_USERNAME}</username>
+            <password>${env.DOCKER_PASSWORD}</password -->
+            <username>andrewkandzuba</username>
+            <password>A16hotdog448BAD</password>
+        </server>
+    </servers>
+    <profiles>
+        <profile>
+            <id>ossrh</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <gpg.executable>gpg</gpg.executable>
+                <!-- gpg.keyname>${env.GPG_KEY_NAME}</gpg.keyname>
+                <gpg.passphrase>${env.GPG_PASSPHRASE}</gpg.passphrase -->
+                <gpg.keyname>821A4547B7410DAC</gpg.keyname>
+                <gpg.passphrase>A16hotdog448BAD)</gpg.passphrase>
+            </properties>
+        </profile>
+    </profiles>
+</settings>
