@@ -68,9 +68,9 @@ public class TestApplication {
     void mainSuccess() throws IOException {
         ByteArrayOutputStream bo = new ByteArrayOutputStream();
         System.setOut(new PrintStream(bo));
-        Application.main("-f", "/tmp/names.txt");
+        Application.main("-f", TestApplication.class.getResource("/testdata/names.txt").getPath());
         bo.flush();
         String out = new String(bo.toByteArray(), Charset.defaultCharset());
-        Assertions.assertEquals("Hello world!!!\n", out);
+        Assertions.assertEquals("\"MARY\",\"PATRICIA\",\"LINDA\",\"BARBARA\",\"VINCENZO\",\"SHON\",\"LYNWOOD\",\"JERE\",\"HAI\"\n", out);
     }
 }
