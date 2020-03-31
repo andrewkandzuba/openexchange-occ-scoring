@@ -5,21 +5,21 @@
 CLI application to calculate the total score of a file with names
 
 #Introduction
-[TBD]
+[TBD]()
 
 # Problem statement
-[TBD]
+[TBD]()
 
 # Solution
-[TBD]
+[TBD]()
 
 ## Design
-[TBD]
+[TBD]()
 
 ## Implementation
-[TBD]
+[TBD]()
 
 ## Testing
 
 # Conclusion
-[TBD]
+[TBD]()
