@@ -30,6 +30,8 @@ public class TestTrie {
 
         Assertions.assertNotNull(n);
         Assertions.assertEquals(40, n.score());
+        Assertions.assertEquals(2, n.pos());
+        Assertions.assertNotNull(n.children());
     }
 
     @Test

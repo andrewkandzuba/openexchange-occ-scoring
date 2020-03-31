@@ -113,6 +113,7 @@
         <module>cli</module>
         <module>api</module>
         <module>trie</module>
+        <module>solution</module>
     </modules>
 
     <build>

@@ -1,7 +1,7 @@
 package io.openexchange.occ.scoring;
 
-import java.net.URI;
+import java.net.URL;
 
 public interface ScoreFactory {
-    Score load(URI data);
+    Score load(URL data);
 }
