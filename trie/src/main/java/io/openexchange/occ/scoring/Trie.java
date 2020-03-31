@@ -58,6 +58,10 @@ public class Trie {
         return t;
     }
 
+    public TrieNode root(){
+        return root;
+    }
+
     public static class TrieNode {
         private TrieNode[] children = new TrieNode[MAX_CHAR];
         private int pos = -1;
@@ -65,6 +69,12 @@ public class Trie {
 
         public int score() {
             return score;
+        }
+        public TrieNode[] children(){
+            return children;
+        }
+        public int pos(){
+            return pos;
         }
     }
 

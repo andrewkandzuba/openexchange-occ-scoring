@@ -7,7 +7,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import java.net.URI;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class TestScoreFactory {
 
@@ -18,14 +19,14 @@ public class TestScoreFactory {
 
     private ScoreFactory scoreFactoryA = new ScoreFactory() {
         @Override
-        public Score load(URI resource) {
+        public Score load(URL resource) {
             return scoreA;
         }
     };
 
     private ScoreFactory scoreFactoryB = new ScoreFactory() {
         @Override
-        public Score load(URI resource) {
+        public Score load(URL resource) {
             return scoreB;
         }
     };
@@ -38,13 +39,13 @@ public class TestScoreFactory {
     }
 
     @Test
-    void createScoreSuccess() {
-        URI uri = URI.create("/tmp/file");
+    void createScoreSuccess() throws MalformedURLException {
+        URL url = new URL("file://tmp/file");
 
-        var score = scoreFactoryA.load(uri);
+        var score = scoreFactoryA.load(url);
         Assertions.assertEquals(100, score.total());
 
-        score = scoreFactoryB.load(uri);
+        score = scoreFactoryB.load(url);
         Assertions.assertEquals(200, score.total());
     }
 }
