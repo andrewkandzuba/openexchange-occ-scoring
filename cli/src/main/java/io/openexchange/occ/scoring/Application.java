@@ -21,7 +21,8 @@ public class Application {
                 return;
             }
             process(line.getOptionValue( "f" ));
-        } catch (ParseException exp) {
+        } catch (ParseException e) {
+            System.err.println("Failed to parse input: " + e.getMessage());
             help();
         } catch (IOException e) {
             System.err.println("Failed to process the file: " + e.getMessage());
