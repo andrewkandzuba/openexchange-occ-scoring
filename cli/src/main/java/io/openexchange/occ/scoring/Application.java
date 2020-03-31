@@ -1,12 +1,9 @@
 package io.openexchange.occ.scoring;
 
 import org.apache.commons.cli.*;
-import org.apache.commons.io.IOUtils;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.charset.Charset;
 
 public class Application {
 
@@ -49,9 +46,9 @@ public class Application {
     }
 
     private static void process(String path) throws IOException {
-        try(FileInputStream fis =new FileInputStream(new File(path))){
-            var content = IOUtils.toString(fis, Charset.defaultCharset());
-            System.out.println(content);
-        }
+        var f = new File(path);
+        var url = f.toURI().toURL();
+        var score = new FileScoreFactory().load(url);
+        System.out.println(score.total());
     }
 }

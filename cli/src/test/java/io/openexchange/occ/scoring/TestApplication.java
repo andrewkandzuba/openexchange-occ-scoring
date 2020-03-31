@@ -71,6 +71,6 @@ public class TestApplication {
         Application.main("-f", TestApplication.class.getResource("/testdata/names.txt").getPath());
         bo.flush();
         String out = new String(bo.toByteArray(), Charset.defaultCharset());
-        Assertions.assertEquals("\"MARY\",\"PATRICIA\",\"LINDA\",\"BARBARA\",\"VINCENZO\",\"SHON\",\"LYNWOOD\",\"JERE\",\"HAI\"\n", out);
+        Assertions.assertEquals("3194\n", out);
     }
 }
