@@ -112,6 +112,7 @@
     <modules>
         <module>cli</module>
         <module>api</module>
+        <module>trie</module>
     </modules>
 
     <build>
