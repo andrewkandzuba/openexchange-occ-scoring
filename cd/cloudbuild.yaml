@@ -65,48 +65,34 @@ steps:
       - name: 'gnupg'
         path: /root/.gpg
 
-  # Debug secrets
-  - name: 'gcr.io/cloud-builders/gcloud'
-    entrypoint: 'bash'
-    args: ['-c',
-           'echo "$$OSSRH_JIRA_PASSWORD_SECRET"',
-           'echo "$$DOCKER_PASSWORD_SECRET"',
-           'echo "$$GPG_PASSPHRASE_SECRET"']
-    env:
-      - OSSRH_JIRA_USERNAME=$_OSSRH_JIRA_USERNAME
-    secretEnv:
-      - 'OSSRH_JIRA_PASSWORD_SECRET'
-      - 'DOCKER_PASSWORD_SECRET'
-      - 'GPG_PASSPHRASE_SECRET'
-
   # Deploy
   - name: maven:3.6.3-jdk-13
     entrypoint: bash
     args: ['-c', './cd/deploy.sh']
-    env:
-      - OSSRH_JIRA_USERNAME=$_OSSRH_JIRA_USERNAME
-      - OSSRH_JIRA_PASSWORD=$$OSSRH_JIRA_PASSWORD_SECRET
-      - DOCKER_USER=$_DOCKER_USER
-      - DOCKER_PASSWORD=$$DOCKER_PASSWORD_SECRET
-      - GPG_KEY_NAME=$_GPG_KEY_NAME
-      - GPG_PASSPHRASE=$$GPG_PASSPHRASE_SECRET
     volumes:
       - name: 'jar'
         path: /jar
       - name: 'gnupg'
         path: /root/.gpg
+    env:
+      - '_OSSRH_JIRA_USERNAME=$_OSSRH_JIRA_USERNAME'
+      - '_DOCKER_USERNAME=$_DOCKER_USERNAME'
     secretEnv:
-      - 'OSSRH_JIRA_PASSWORD_SECRET'
-      - 'DOCKER_PASSWORD_SECRET'
-      - 'GPG_PASSPHRASE_SECRET'
+      - '_OSSRH_JIRA_PASSWORD_SECRET'
+      - '_DOCKER_PASSWORD_SECRET'
+      - '_GPG_KEY_SECRET'
+      - '_GPG_PASSPHRASE_SECRET'
 
 secrets:
   - kmsKeyName: projects/gi-gae/locations/global/keyRings/gpg-keyring/cryptoKeys/ossh-pw-key
     secretEnv:
-      OSSRH_JIRA_PASSWORD_SECRET: CiQAyc/RE4jllBEpcpNV2lE4WacyBGyFehl2Gr19IG2f/JF9BzwSOgAshiJv0GpvUj7xXX4EizfDiAUJS7z1XfLUB3oHHRpCIjn6LSrBgk2VaYSDcD5af0Qrumx3zgcNaCo=
+      _OSSRH_JIRA_PASSWORD_SECRET: CiQAyc/RE73Kd6Su8ynDudCrgLpy7ZQAw1UdSKJlghuY6vG6nE4SOwAshiJvXpUdwo0mVMMinF/3U69W7BAdDDsjseEFX7iIQpg4Ei3gBdX6KVWvODQYD13g9M7/HjdJV1Dy
   - kmsKeyName: projects/gi-gae/locations/global/keyRings/gpg-keyring/cryptoKeys/docker-pw-key
     secretEnv:
-      DOCKER_PASSWORD_SECRET: CiQANmEf13tzCp6DALbGoEwGKaIiOXokDXvN10kL1eTQeurwIaQSOQC42lykpvIyauy71DlhrurTrHljQced7RGdK71oW5jlYQqASV9t5gGCuoj8TL+BZkandD94p+T05A==
+      _DOCKER_PASSWORD_SECRET: CiQANmEf11hCmH7Qgw9Prffu6zWGBLmQeLlZhLwy4DWLerkng5kSOgC42lykJ+FanHqfIYoM0uTaFf+HOYN4tcBLNsABWwh2txOQOy7OBYnyFxAK1O2767HqtcwZkS3ltFg=
   - kmsKeyName: projects/gi-gae/locations/global/keyRings/gpg-keyring/cryptoKeys/gpg-key
     secretEnv:
-      GPG_PASSPHRASE_SECRET: CiQAjqMjqqW2zNHzcVibyFrjAJtK4LnyOEdCe8lmKRkVFLR4SxUSOgCB8Y10/XFq8iB0/G/ysKTllBLnW6Hds616cvdgEVQjaeHfssuNa6r5+LjiX2yCDLgGfGdswmUshxQ=
+      _GPG_KEY_SECRET: CiQAjqMjqtYe6B3XlC5hNwuPYWGmUhfF/doEuMRixBePLAW6qH0SOgCB8Y10tZWy4M2B2sq0iWhkqqXIYghUCe/qh5v4prkRNTJn3Kt60FM6OdGKw2N7s7ngvBh67isN9lo=
+  - kmsKeyName: projects/gi-gae/locations/global/keyRings/gpg-keyring/cryptoKeys/gpg-pw
+    secretEnv:
+      _GPG_PASSPHRASE_SECRET: CiQAnYbZ8I5xBLLKwD6LYZv4MVMZlJm7EcdqouYn/MdjA+z1kUUSOwDfdPs1gL+cCvCCYVKFRNCsTPCH/y2O75WQtPmtVas/22aHwb6bCt54W5huc4LG4kZNeikdO/pRuggm

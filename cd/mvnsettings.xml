@@ -2,17 +2,13 @@
     <servers>
         <server>
             <id>ossrh</id>
-            <!-- username>${env.OSSRH_JIRA_USERNAME}</username>
-            <password>${env.OSSRH_JIRA_PASSWORD}</password -->
-            <username>andrew_kandzuba</username>
-            <password>A16hotdog448BAD&amp;</password>
+            <username>${env._OSSRH_JIRA_USERNAME}</username>
+            <password>${env._OSSRH_JIRA_PASSWORD_SECRET}</password>
         </server>
         <server>
             <id>docker.io</id>
-            <!-- username>${env.DOCKER_USERNAME}</username>
-            <password>${env.DOCKER_PASSWORD}</password -->
-            <username>andrewkandzuba</username>
-            <password>A16hotdog448BAD</password>
+            <username>${env._DOCKER_USERNAME}</username>
+            <password>${env._DOCKER_PASSWORD_SECRET}</password>
         </server>
     </servers>
     <profiles>
@@ -23,10 +19,8 @@
             </activation>
             <properties>
                 <gpg.executable>gpg</gpg.executable>
-                <!-- gpg.keyname>${env.GPG_KEY_NAME}</gpg.keyname>
-                <gpg.passphrase>${env.GPG_PASSPHRASE}</gpg.passphrase -->
-                <gpg.keyname>821A4547B7410DAC</gpg.keyname>
-                <gpg.passphrase>A16hotdog448BAD)</gpg.passphrase>
+                <gpg.keyname>${env._GPG_KEY_SECRET}</gpg.keyname>
+                <gpg.passphrase>${env._GPG_PASSPHRASE_SECRET}</gpg.passphrase>
             </properties>
         </profile>
     </profiles>
