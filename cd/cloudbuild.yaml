@@ -86,16 +86,13 @@ steps:
 secrets:
   - kmsKeyName: projects/gi-gae/locations/global/keyRings/gpg-keyring/cryptoKeys/ossh-pw-key
     secretEnv:
-      _OSSRH_JIRA_PASSWORD_SECRET: CiQAyc/RE021nFh/48K8i4jJv42RE5ROH0toCFS61xUZu89OZt4SOgAshiJvClI71atSdfmP7b8Zj2yAjlXYqqtvRWCklzrbnZravUGg0fk2NRAG2jLiuB+DkUFoW0j2E9o=
+      _OSSRH_JIRA_PASSWORD_SECRET: CiQAyc/RE73Kd6Su8ynDudCrgLpy7ZQAw1UdSKJlghuY6vG6nE4SOwAshiJvXpUdwo0mVMMinF/3U69W7BAdDDsjseEFX7iIQpg4Ei3gBdX6KVWvODQYD13g9M7/HjdJV1Dy
   - kmsKeyName: projects/gi-gae/locations/global/keyRings/gpg-keyring/cryptoKeys/docker-pw-key
     secretEnv:
-      _DOCKER_PASSWORD_SECRET: CiQANmEf1xUjwiPsCqajx0H/t9/aXuHIhH/Q4+9t8RA2h19cBd8SOQC42lykNd02RLb8lrD9/NTl85FeiCC0r58rd86NYPZdDt6Y/8BlZ/yY/ckXp495YE4mVatqZWXa3w==
+      _DOCKER_PASSWORD_SECRET: CiQANmEf11hCmH7Qgw9Prffu6zWGBLmQeLlZhLwy4DWLerkng5kSOgC42lykJ+FanHqfIYoM0uTaFf+HOYN4tcBLNsABWwh2txOQOy7OBYnyFxAK1O2767HqtcwZkS3ltFg=
   - kmsKeyName: projects/gi-gae/locations/global/keyRings/gpg-keyring/cryptoKeys/gpg-key
     secretEnv:
-      _GPG_KEY_SECRET: CiQAjqMjqvuRfGmq4VJZmiQ4QAo+5trYYTdv40oH++ZcebNstssSOgCB8Y10jxtfj4bFfIdMHA2m9gjMLiPpxoesWWCzXTT1a9ePOQmwhQ6VnSyjlBH65Zq/GrelXw+J94k=
+      _GPG_KEY_SECRET: CiQAjqMjqtYe6B3XlC5hNwuPYWGmUhfF/doEuMRixBePLAW6qH0SOgCB8Y10tZWy4M2B2sq0iWhkqqXIYghUCe/qh5v4prkRNTJn3Kt60FM6OdGKw2N7s7ngvBh67isN9lo=
   - kmsKeyName: projects/gi-gae/locations/global/keyRings/gpg-keyring/cryptoKeys/gpg-pw
     secretEnv:
-      _GPG_PASSPHRASE_SECRET: CiQAnYbZ8I30qnV2FFwLYXk9EBgHkHh6/AJPMreE6PpwFcifp6wSOgDfdPs1c2cdoq0MPLaceUSy0xqcWeHmmlz+p8lbf+sai2thHoLUa98dAQLDbAFuRDyD3HYURjOBauQ=
-
-
-
+      _GPG_PASSPHRASE_SECRET: CiQAnYbZ8I5xBLLKwD6LYZv4MVMZlJm7EcdqouYn/MdjA+z1kUUSOwDfdPs1gL+cCvCCYVKFRNCsTPCH/y2O75WQtPmtVas/22aHwb6bCt54W5huc4LG4kZNeikdO/pRuggm
