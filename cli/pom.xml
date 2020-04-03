@@ -60,7 +60,7 @@
                             <images>
                                 <image>
                                     <alias>${project.artifactId}</alias>
-                                    <name>andrewkandzuba/${project.artifactId}:${project.version}</name>
+                                    <name>${env._DOCKER_USERNAME}/${project.artifactId}:${project.version}</name>
                                     <build>
                                         <tags>
                                             <tag>latest</tag>
