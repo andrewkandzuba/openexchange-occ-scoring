@@ -71,7 +71,7 @@
         <jacoco.check.coverage.minimal>0.80</jacoco.check.coverage.minimal>
         <junit.version>5.6.1</junit.version>
         <apache.commons.cli.version>1.4</apache.commons.cli.version>
-        <apache.commons.io.version>2.6</apache.commons.io.version>
+        <apache.commons.io.version>2.7</apache.commons.io.version>
         <mockito.version>3.3.3</mockito.version>
     </properties>
 
